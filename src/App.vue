@@ -1,13 +1,21 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view :progress="progress" @update="update"/>
   </div>
 </template>
 
 <script>
 export default{
   name: 'App',
+  data(){
+    return{
+      progress: 5
+    }
+  },
   methods:{
+    update: function(data){
+      this.progress = data.progress;
+    }
   }
 }
 </script>
@@ -17,13 +25,5 @@ body{
   padding: 0;
   margin: 0;
   background-color: rgb(31, 89, 160);
-}
-#logoContainer{
-  width: 100%;
-}
-#logo{
-  height: 60vh;
-  display: block;
-  margin: 15% auto auto auto;
 }
 </style>
