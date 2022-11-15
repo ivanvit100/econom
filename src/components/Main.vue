@@ -32,7 +32,7 @@ h1{
 #logo{
   height: 60vh;
   display: block;
-  margin: 15% auto auto auto;
+  margin: 10% auto auto auto;
   transition: left 1.5s;
 }
 </style>
