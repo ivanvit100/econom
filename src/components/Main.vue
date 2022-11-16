@@ -1,7 +1,7 @@
 <template>
   <div id="Main">
     <h1>Факультет экономики ЕИ КФУ</h1>
-    <div id="logoContainer" class="animate__animated animate__backInLeft animate__delay-1s">
+    <div id="logoContainer" class="animate__animated animate__zoomIn">
       <img id="logo" src="@/assets/logo.png" @click="start">
     </div>
   </div>
@@ -19,6 +19,10 @@ export default{
 </script>
 
 <style scoped>
+div{
+  --animate-duration: 1.5s;
+  --animate-delay: 0.5s;
+}
 #Main{
   text-align: center;
 }
