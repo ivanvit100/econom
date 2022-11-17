@@ -24,6 +24,16 @@ export default{
 body{
   padding: 0;
   margin: 0;
-  background-color: #0258a0;
+}
+#app{
+  background: rgb(63,63,63);
+  background: linear-gradient(180deg, rgba(63,63,63,1) 0%, rgba(23,23,23,1) 100%);
+  height: 100vh
+}
+#logo2{
+  height: 100px;
+  position: absolute;
+  right: 10%;
+  z-index: 2;
 }
 </style>

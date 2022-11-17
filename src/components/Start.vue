@@ -1,5 +1,6 @@
 <template>
   <div id="Start">
+  	<img src="@/assets/line.png" alt="logo" id="logo2">
     <div class="barcontainer">
     	<div class="bar"></div>
     	<div class="barCont"><img src="@/assets/money.png" alt="Coin" class="coin" style></div>
@@ -45,6 +46,8 @@
 		    <br>
 		</div>
 	</div>
+	<div id="next" @click="next">&#10230;</div>
+    <div id="home" @click="home">&#10229;</div>
   </div>
 </template>
 
@@ -135,7 +138,13 @@ export default{
 			});
 			this.$router.push('Second');
   		}
-  	}
+  	},
+  	next: function(){
+      this.$router.push('Second')
+    },
+    home: function(){
+      this.$router.push('Main')
+    }
   },
   mounted(){
   	document.querySelector(".coin").style.bottom = "calc(" + this.progress + "% - 25px)";
@@ -146,7 +155,7 @@ export default{
 
 <style>
 input{
-	background-color: #0258a0;
+	background-color: rgba(0, 0, 0, 0);
 	border: none;
 	border-bottom: 3px solid white;
 	color: white;
@@ -169,6 +178,26 @@ input{
 #Start{
 	display: grid;
 	grid-template-columns: 50px calc(100% - 50px);
+	position: relative;
+}
+.barcontainer, .task{
+	z-index: 2;
+	position: relative;
+}
+#Start:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.4;
+    background: url("../assets/background.jpg") center center no-repeat;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: 100%;
 }
 .container{
 	width: 500px;
