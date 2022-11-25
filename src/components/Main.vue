@@ -3,7 +3,7 @@
     <nav>
       <h1>Конкурсы рубля</h1>
       <h3>Факультет экономики ЕИ КФУ</h3>
-      <img src="@/assets/line.png" alt="logo" id="logo">
+      <img src="@/assets/line.png" alt="logo" class="animate__animated animate__slideInDown" id="logo">
     </nav>
     <center>
     <div id="logoContainer">
@@ -125,7 +125,7 @@ h3{
 .card0:hover h2, .card0:hover p, .card1:hover h2, .card1:hover p, .card2:hover h2, .card2:hover p, .card3:hover h2, .card3:hover p{
   opacity: 1;
 }
-img{
+.card{
   max-width: 95%;
 }
 #logo{

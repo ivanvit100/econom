@@ -3,9 +3,10 @@
     <nav>
       <h1>Конкурсы рубля</h1>
       <h3>Факультет экономики ЕИ КФУ</h3>
-      <img src="@/assets/line.png" alt="logo" id="logo">
+      <img src="@/assets/line.png" alt="logo" id="logo" @click="home">
     </nav>
     <h2>Список направлений</h2>
+    <p v-for="item in items" @click="game(item.game)">{{item.name}}</p>
   </div>
 </template>
 
@@ -15,11 +16,15 @@ export default{
   props: ['progress'],
   data(){
   	return{
+      items: [{'name': 'Инновационная экономика и технологическо предпринимательство', 'game': 'new'}, {'name': 'Менеджмент', 'game': 'manage'}, {'name': 'Макроэкономика', 'game': 'macro'}, {'name': 'Международный бизнес', 'game': 'world'}, {'name': 'История экономических учений', 'game': 'history'}, {'name': 'Экономическая теория', 'game': 'theory'}, {'name': 'Финансы', 'game': 'finance'}, {'name': 'Бухгалтерский управленческий учёт', 'game': 'accounting'}, {'name': 'Деньги, кредит, банкт', 'game': 'money'}, {'name': 'Эконометрика', 'game': 'metric'}, {'name': 'Бюджетная система РФ', 'game': 'ru'}, {'name': 'Бизнес-планирование', 'game': 'plan'}, {'name': 'Инвестирование', 'game': 'invest'}, {'name': 'Корпоративные финансы', 'game': 'corp'}, {'name': 'Мировая экономика и международные экономические отношения', 'game': 'worldeco'}, {'name': 'Маркетинг', 'game': 'market'}, {'name': 'Теория бухгалтерского учёта', 'game': 'counttheory'}, {'name': 'Финансовый учёт и отчётность', 'game': 'report'}, {'name': 'Теория экономического анализа', 'game': 'analitic'}, {'name': 'Налоги и налогооблажение организаций', 'game': 'taxes'}, {'name': 'Менеджмент', 'game': 'manage'}, {'name': 'Экономическая безопасность', 'game': 'safety'}, {'name': 'Страхование и страховая деятельность', 'game': 'insurace'}, {'name': 'Финансовый менеджмент', 'game': 'finmanage'}, {'name': 'Экономика инновационной деятельности', 'game': 'neweco'}, {'name': 'Внешнеэкономическая деятельность: особенности учёта', 'game': 'outeco'}, {'name': 'Основы предпринимательства', 'game': 'base'}, {'name': 'Экономика организации', 'game': 'corp'}]
   	}
   },
   methods:{
     home: function(){
       this.$router.push('Main')
+    },
+    game: function(id){
+      this.$router.push({name: 'Game', params: {gameId: id}})
     }
   },
   mounted(){
@@ -27,5 +32,19 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
+h1, h3{
+  margin-bottom: auto;
+  margin-top: auto;
+  font-family: 'Roboto Slab', serif;
+}
+h1{
+  color: black;
+  transition: top 1.5s;
+  text-shadow: 2px 2px 0 rgb(165, 42, 36), 2px -2px 0 rgb(165, 42, 36), -2px 2px 0 rgb(165, 42, 36), -2px -2px 0 rgb(165, 42, 36), 2px 0px 0 rgb(165, 42, 36), 0px 2px 0 rgb(165, 42, 36), -2px 0px 0 rgb(165, 42, 36), 0px -2px 0 rgb(165, 42, 36), 2px 2px 2px rgba(206,11,11,0);
+  font-size: 32px;
+}
+h3{
+  font-size: 20px;
+}
 </style>

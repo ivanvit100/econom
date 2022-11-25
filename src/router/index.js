@@ -5,6 +5,7 @@ import More from '@/components/More'
 import Story from '@/components/story'
 import Start from '@/components/Start'
 import Second from '@/components/Second'
+import Game from '@/components/Game'
 
 Vue.use(Router)
 
@@ -35,6 +36,12 @@ export default new Router({
       path: '/second',
       name: 'Second',
       component: Second
+    },
+    {
+      path: '/game/:gameID',
+      name: 'Game',
+      component: Game,
+      props: true
     },
     {
 		path: '*',

@@ -1,49 +1,50 @@
 <template>
   <div id="Start">
-  	<img src="@/assets/line.png" alt="logo" id="logo2">
+  	<img src="@/assets/line.png" alt="logo" id="logo2" @click="home">
     <div class="barcontainer">
     	<div class="bar"></div>
     	<div class="barCont"><img src="@/assets/money.png" alt="Coin" class="coin" style></div>
 	</div>
 	<div class="task">
-		<h1>Помогите рублю подняться!</h1>
-		<h2>Литературный конкурс</h2>
+		<div id="phone"><img src="@/assets/phone.png" alt="phone"></div>
 		<div id="first">
-			<div>На товаре быть должна<br>
-			Обязательно
-			<input type="text" v-model="first" id="firstInput">
-		    </div>
-		    <br>
-		    <div>Журчат ручьи, промокли ноги<br>
-			Весной пора платить
-			<input type="text" v-model="second" id="secondInput">
-		    </div>
-		    <br>
-		    <div>Дела пойдут у нас на лад:<br>
-			Мы в лучший банк внесли свой
-			<input type="text" v-model="third" id="thirdInput">
-		    </div>
-		    <br>
-		    <div>Мебель купили, одежду, посуду<br>
-			Брали для этого в банке мы
-			<input type="text" v-model="fourth" id="fourthInput">
-		    </div>
-		    <br>
-		    <div>Как ребёнка нет без мамы<br>
-			Сбыта нету без
-			<input type="text" v-model="fifth" id="fifthInput">
-		    </div>
-		    <br>
-		    <div>На рубль - копейки, на доллары - центы<br>
-			Бегут-набегают в банке
-			<input type="text" v-model="sixth" id="sixthInput">
-		    </div>
-		    <br>
-		    <div>Коль трудиться круглый год<br>
-			Будет кругленьким
-			<input type="text" v-model="seventh" id="seventhInput">
-		    </div>
-		    <br>
+			<div id="wrap">
+				<h2>Литературный конкурс</h2>
+				<div>На товаре быть должна<br>
+				Обязательно
+				<input type="text" v-model="first" id="firstInput">
+		    	</div>
+		    	<br>
+		    	<div>Журчат ручьи, промокли ноги<br>
+				Весной пора платить
+				<input type="text" v-model="second" id="secondInput">
+		    	</div>
+		    	<br>
+		    	<div>Дела пойдут у нас на лад:<br>
+				Мы в лучший банк внесли свой
+				<input type="text" v-model="third" id="thirdInput">
+		    	</div>
+		    	<br>
+		    	<div>Мебель купили, одежду, посуду<br>
+				Брали для этого в банке мы
+				<input type="text" v-model="fourth" id="fourthInput">
+		    	</div>
+		    	<br>
+		    	<div>Как ребёнка нет без мамы<br>
+				Сбыта нету без
+				<input type="text" v-model="fifth" id="fifthInput">
+		    	</div>
+		    	<br>
+		    	<div>На рубль - копейки, на доллары - центы<br>
+				Бегут-набегают в банке
+				<input type="text" v-model="sixth" id="sixthInput">
+		    	</div>
+		    	<br>
+		    	<div>Коль трудиться круглый год<br>
+				Будет кругленьким
+				<input type="text" v-model="seventh" id="seventhInput">
+		    	</div>
+			</div>
 		</div>
 	</div>
 	<div id="next" @click="next">&#10230;</div>
@@ -134,15 +135,21 @@ export default{
   	check: function(){
   		if(this.ready.every((v,i)=>v === this.answers[i])){
   			this.$emit('update', {
-				progress: this.progress + 10
+				progress: this.progress - 35
 			});
 			this.$router.push('Second');
   		}
   	},
   	next: function(){
+  		this.$emit('update', {
+			progress: this.progress - 35
+		});
       this.$router.push('Second')
     },
     home: function(){
+    	this.$emit('update', {
+			progress: 45
+		});
       this.$router.push('Main')
     }
   },
@@ -154,6 +161,25 @@ export default{
 </script>
 
 <style>
+#first, #phone{
+	position: relative;
+}
+#wrap, #phone > img{
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+#phone > img{
+	transform: translate(10%, -50%);
+}
+.task{
+	display: grid;
+	grid-template-columns: 30% 70%;
+	text-align: center;
+	color: white;
+}
 input{
 	background-color: rgba(0, 0, 0, 0);
 	border: none;
@@ -162,12 +188,8 @@ input{
 	outline: none;
 	font-size: 16px;
 }
-.task{
-	text-align: center;
-	color: white;
-}
 .coin{
-	width: 60px;
+	width: 60px !important;
 	left: -5px;
 	position: absolute;
 	transition: bottom 1.5s;
@@ -207,15 +229,20 @@ input{
 	margin: 50px auto;
 }
 .barcontainer{
-	background-color: white;
+	background: rgb(226,225,223);
+	background: linear-gradient(180deg, rgba(226,225,223,1) 0%, rgba(168,165,163,1) 100%);
 	position: relative;
 	transform: translateY(-50%);
 	top: 50%;
 	width: 50px;
 	height: 100vh;
+	-webkit-box-shadow: 9px 0px 8px 0px rgba(0, 0, 0, 0.2); 
+	-moz-box-shadow: 9px 0px 8px 0px rgba(0, 0, 0, 0.2); 
+	box-shadow: 9px 0px 8px 0px rgba(0, 0, 0, 0.2);
 }
 .bar{
 	background-color: #f77d24;
+	background: linear-gradient(180deg, rgba(255,175,0,1) 0%, rgba(247,123,66,1) 100%);
 	position: absolute;
 	bottom: 0;
 	width: 100%;
