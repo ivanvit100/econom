@@ -13,7 +13,7 @@ export default{
   data(){
     return{
       counter: 0,
-      txt: 'Что-то там, темная улица, ночь, улица, фонарь... Короч да, какой-то диалог перед падением рубля',
+      txt: 'Тёмную улицу небольшого городка едва обволакивал тусклый лунный свет. Двое мужчин, одетых достаточно невзрачно, непринужденно обсуждали свой план. Из их шепота трудно было уловить хоть что-то, но фразы о падении рубля были слышны отчетливо словно раскаты грома.',
       text: ''
     }
   },
@@ -28,7 +28,7 @@ export default{
       if(this.counter < this.txt.length){
         this.text += this.txt.charAt(this.counter);
         this.counter++;
-        setTimeout(this.writer, 100);
+        setTimeout(this.writer, 50);
       }
     }
   },
@@ -51,8 +51,8 @@ export default{
 }
 .text{
   font-family: 'Play', sans-serif;
-  padding: 25px;
-  font-size: 17px;
+  padding: 25px 220px 25px 25px;
+  font-size: 18px;
   color: white;
   background-color: black;
   border: 5px solid white;
@@ -69,6 +69,9 @@ export default{
   text-align: center;
   font-size: 25px;
   z-index: 2;
+  -webkit-box-shadow: 2px 2px 4px 2px rgba(99, 75, 27, 0.2); 
+  -moz-box-shadow: 2px 2px 4px 2px rgba(99, 75, 27, 0.2); 
+  box-shadow: 2px 2px 4px 2px rgba(99, 75, 27, 0.2);
 }
 #next:hover, #home:hover{
   background-color: #f77d24;

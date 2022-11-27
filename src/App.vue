@@ -9,7 +9,7 @@ export default{
   name: 'App',
   data(){
     return{
-      progress: 45
+      progress: 5
     }
   },
   methods:{
@@ -26,6 +26,9 @@ body{
   margin: 0;
   background: rgb(63,63,63);
   background: linear-gradient(180deg, rgba(63,63,63,1) 0%, rgba(23,23,23,1) 100%);
+  max-height: 100vh;
+  min-height: 600px;
+  min-width: 1100px;
 }
 #app{
   height: 100vh;
@@ -44,7 +47,8 @@ body{
 }
 #logo, #logo2{
   -webkit-box-shadow: 11px -9px 8px 0px rgba(28, 0, 0, 0.2); 
--moz-box-shadow: 11px -9px 8px 0px rgba(28, 0, 0, 0.2); 
-box-shadow: 11px -9px 8px 0px rgba(28, 0, 0, 0.2);
+  -moz-box-shadow: 11px -9px 8px 0px rgba(28, 0, 0, 0.2); 
+  box-shadow: 11px -9px 8px 0px rgba(28, 0, 0, 0.2);
+  z-index: 3;
 }
 </style>

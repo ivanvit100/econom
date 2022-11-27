@@ -6,9 +6,13 @@
     	<div class="barCont"><img src="@/assets/money.png" alt="Coin" class="coin" style></div>
 	</div>
 	<div class="task">
-		<div id="phone"><img src="@/assets/phone.png" alt="phone"></div>
+		<div id="phone">
+			<img src="@/assets/phone.png" alt="phone">
+			<p class="cloud animate__animated animate__fadeIn animate__delay-2s animate__slow">{{text}}</p>
+		</div>
 		<div id="first">
 			<div id="wrap">
+				<img src="@/assets/mail.png" alt="mail" id="mail">
 				<h2>Литературный конкурс</h2>
 				<div>На товаре быть должна<br>
 				Обязательно
@@ -65,7 +69,10 @@ export default{
   		fourth: '',
   		fifth: '',
   		sixth: '',
-  		seventh: ''
+  		seventh: '',
+  		counter: 0,
+      txt: 'Алло, ну что там с деньгами? Тьфу ты... Курс рубля упал. Все экономисты в стране таинственным образом пропали. Ваша миссия: как можно скорее реанимировать рубль, пока не повторился чёрный вторник. Высылаю первое задание.',
+      text: ''
   	}
   },
   computed:{
@@ -135,32 +142,75 @@ export default{
   	check: function(){
   		if(this.ready.every((v,i)=>v === this.answers[i])){
   			this.$emit('update', {
-				progress: this.progress - 35
+				progress: 15
 			});
 			this.$router.push('Second');
   		}
   	},
   	next: function(){
   		this.$emit('update', {
-			progress: this.progress - 35
+			progress: 15
 		});
       this.$router.push('Second')
     },
     home: function(){
     	this.$emit('update', {
-			progress: 45
+			progress: 5
 		});
       this.$router.push('Main')
+    },
+  writer: function(){
+      if(this.counter < this.txt.length){
+        this.text += this.txt.charAt(this.counter);
+        this.counter++;
+        if(this.counter + 1 == this.txt.length){
+        	document.querySelector(".cloud").classList.add("animate__fadeOut");
+        	console.log("stop");
+        }else{
+        	setTimeout(this.writer, 55);
+        }
+      }
     }
-  },
+    },
   mounted(){
   	document.querySelector(".coin").style.bottom = "calc(" + this.progress + "% - 25px)";
   	document.querySelector(".bar").style.height = this.progress + "%";
+  	this.writer();
   }
 }
 </script>
 
 <style>
+.cloud{
+  position: absolute;
+  color: black;
+  width: 250px;
+  background-color: #fff;
+  padding: 1.125em 1.5em;
+  font-size: 17px;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+  top: 55%;
+  right: -40%;
+  text-align: left;
+}
+.cloud::before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 100%;
+  border: .75rem solid transparent;
+  border-top: none;
+  border-bottom-color: #fff;
+  filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+}
+#mail{
+	position: absolute;
+	left: -35px;
+	top: -30px;
+	width: 100px;
+}
 #first, #phone{
 	position: relative;
 }
@@ -171,14 +221,23 @@ export default{
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
+#wrap{
+	background-color: rgba(0, 0, 0, .5);
+	border-radius: 50px;
+	border: 5px solid white;
+	padding: 20px;
+}
 #phone > img{
-	transform: translate(10%, -50%);
+	transform: translate(0%, -50%);
+	max-height: 82%;
+	max-width: 81%;
 }
 .task{
 	display: grid;
 	grid-template-columns: 30% 70%;
 	text-align: center;
 	color: white;
+	font-size: 17px;
 }
 input{
 	background-color: rgba(0, 0, 0, 0);

@@ -9,6 +9,7 @@
 		<div id="phone"><img src="@/assets/phone.png" alt="phone"></div>
 		<div id="first">
 			<div id="wrap">
+				<img src="@/assets/mail.png" alt="mail" id="mail">
 				<h2>Шифрограмма</h2>
 				<div id="first" v-if="progress">
 					<p>7&//S++И#%#@&*@(*$)@*)?”>?:R>@#%>h?$><br>
@@ -109,7 +110,7 @@ export default{
     },
     home: function(){
     	this.$emit('update', {
-			progress: 45
+			progress: 5
 		});
       this.$router.push('Main')
     }
