@@ -2,21 +2,21 @@
   <div id="Main">
     <nav>
       <h1>Конкурсы рубля</h1>
-      <h3>Факультет экономики ЕИ КФУ</h3>
+      <h3>Отделение экономических и юридических наук ЕИ КФУ</h3>
       <img src="@/assets/line.png" alt="logo" class="animate__animated animate__slideInDown" id="logo">
     </nav>
     <center>
     <div id="logoContainer">
       <div class="card card0 animate__animated animate__zoomIn">
         <div class="border">
-          <h2>Экономика</h2>
-          <p>Уменьшите количество заданий ЦОРа...</p>
+          <h2>Отделение</h2>
+          <p>Объеденено в октябре 2020 года. <br>Основная задача: обеспечение крупного, среднего и малого бизнеса специалистами нового поколения в сфере управления, экономики и финансов.</p>
         </div>
       </div>
       <div class="card card1 animate__animated animate__zoomIn" @click="more">
         <div class="border">
           <h2>Программы</h2>
-          <p>Игры по образовательным программам факультета экономики ЕИ КФУ</p>
+          <p>Игры по образовательным программам факультета экономики ЕИ КФУ.</p>
         </div>
       </div>
       <div class="card card2 animate__animated animate__zoomIn">
@@ -50,6 +50,10 @@ export default{
 </script>
 
 <style scoped>
+.border > p{
+  text-align: left;
+  word-break: break-word;
+}
 h1, h3{
   margin-bottom: auto;
   margin-top: auto;

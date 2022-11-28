@@ -6,7 +6,10 @@
     	<div class="barCont"><img src="@/assets/money.png" alt="Coin" class="coin" style></div>
 	</div>
 	<div class="task">
-		<div id="phone"><img src="@/assets/phone.png" alt="phone"></div>
+		<div id="phone">
+			<img src="@/assets/phone.png" alt="phone">
+			<p class="cloud animate__animated animate__fadeIn animate__delay-2s animate__slow">{{text}}</p>
+		</div>
 		<div id="first">
 			<div id="wrap">
 				<img src="@/assets/mail.png" alt="mail" id="mail">
@@ -79,6 +82,9 @@ export default{
   	return{
   		first: '',
   		second: '',
+  		txt: 'Наши радисты перехватили какой-то странный зашифрованный сигнал. Единственное, что удалось понять - этот шифр как-то связан с падением курса рубля. Вы должны как можно скорее определить, что же скрыто в этом сообщении! ',
+  		text: '',
+  		counter: 0,
   		progress: true,
   		answers: ['инфляция рецессия', 'волатильность']
   	}
@@ -104,20 +110,33 @@ export default{
   methods:{
   	next: function(){
   		this.$emit('update', {
-			progress: this.progress + 10
+			progress: 25
 		});
-      this.$router.push('Second')
+      this.$router.push('Third')
     },
     home: function(){
     	this.$emit('update', {
 			progress: 5
 		});
       this.$router.push('Main')
+    },
+    writer: function(){
+      if(this.counter < this.txt.length){
+        this.text += this.txt.charAt(this.counter);
+        this.counter++;
+        if(this.counter + 1 == this.txt.length){
+        	document.querySelector(".cloud").classList.add("animate__fadeOut");
+        	console.log("stop");
+        }else{
+        	setTimeout(this.writer, 55);
+        }
+      }
     }
   },
   mounted(){
   	document.querySelector(".coin").style.bottom = "calc(" + this.progress + "% - 25px)";
   	document.querySelector(".bar").style.height = this.progress + "%";
+  	this.writer();
   }
 }
 </script>
