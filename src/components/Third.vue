@@ -51,7 +51,7 @@ export default{
   		first: '',
   		second: '',
   		counter: 0,
-      txt: 'Текст не готов. Но налаживаем торговлю, пока рубль нестабилен.',
+      txt: 'Хоть мы и стараемся поднять курс рубля, но вся торговля приостановлена. Потому мы хотим провести рыночную реформу, временно заменив все способы оплаты на бартер. От Вас же требуется помощь в формировании цен на продукцию. ',
       text: ''
   	}
   },
@@ -113,12 +113,9 @@ export default{
     }
     },
   mounted(){
-  	document.querySelector(".coin").style.bottom = "calc(" + this.progress + "% - 25px)";
-  	document.querySelector(".bar").style.height = this.progress + "%";
+  	document.querySelector(".coin").style.bottom = "calc(35% - 25px)";
+  	document.querySelector(".bar").style.height = "35%";
   	this.writer();
   }
 }
 </script>
-
-<style>
-</style>

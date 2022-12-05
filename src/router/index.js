@@ -6,6 +6,12 @@ import Story from '@/components/story'
 import Start from '@/components/Start'
 import Second from '@/components/Second'
 import Third from '@/components/Third'
+import Fourth from '@/components/Fourth'
+import Fifth from '@/components/Fifth'
+import Sixth from '@/components/Sixth'
+import Story2 from '@/components/story2'
+import FinalQuest from '@/components/FinalQuest'
+import FinalStory from '@/components/FinalStory'
 import Game from '@/components/Game'
 
 Vue.use(Router)
@@ -42,6 +48,36 @@ export default new Router({
       path: '/third',
       name: 'Third',
       component: Third
+    },
+    {
+      path: '/fourth',
+      name: 'Fourth',
+      component: Fourth
+    },
+    {
+      path: '/fifth',
+      name: 'Fifth',
+      component: Fifth
+    },
+    {
+      path: '/sixth',
+      name: 'Sixth',
+      component: Sixth
+    },
+    {
+      path: '/story2',
+      name: 'Story2',
+      component: Story2
+    },
+    {
+      path: '/finalquest',
+      name: 'FinalQuest',
+      component: FinalQuest
+    },
+    {
+      path: '/finalstory',
+      name: 'FinalStory',
+      component: FinalStory
     },
     {
       path: '/game/:gameID',

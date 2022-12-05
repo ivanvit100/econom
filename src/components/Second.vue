@@ -134,12 +134,9 @@ export default{
     }
   },
   mounted(){
-  	document.querySelector(".coin").style.bottom = "calc(" + this.progress + "% - 25px)";
-  	document.querySelector(".bar").style.height = this.progress + "%";
+  	document.querySelector(".coin").style.bottom = "calc(22% - 25px)";
+  	document.querySelector(".bar").style.height = "22%";
   	this.writer();
   }
 }
 </script>
-
-<style>
-</style>

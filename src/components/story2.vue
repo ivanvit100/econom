@@ -9,17 +9,17 @@
 
 <script>
 export default{
-  name: 'Story',
+  name: 'Story2',
   data(){
     return{
       counter: 0,
-      txt: 'Тёмную улицу небольшого городка едва обволакивал тусклый лунный свет. Двое мужчин, одетых достаточно невзрачно, непринужденно обсуждали свой план. Из их шепота трудно было уловить хоть что-то, но фразы о падении рубля были слышны отчетливо словно раскаты грома. ',
+      txt: 'Промежуточный текст, объясняющий задание про речь Путина. ',
       text: ''
     }
   },
   methods:{
     next: function(){
-      this.$router.push('Start')
+      this.$router.push('FinalQuest')
     },
     home: function(){
       this.$router.push('Main')
