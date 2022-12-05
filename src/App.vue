@@ -250,7 +250,7 @@ input, .textWrap{
   background-size: 100%;
 }
 .card0:hover h2, .card0:hover p, .card1:hover h2, .card1:hover p, .card2:hover h2, .card2:hover p, .card3:hover h2, .card3:hover p{
-  opacity: 1;
+  opacity: 1 !important;
 }
 .card{
   max-width: 95%;

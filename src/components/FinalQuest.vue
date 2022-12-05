@@ -17,7 +17,7 @@
 		</div>
 		<div class="text">
       <div id="readybar">
-        <span>Социализм</span>
+        <span>Мировая экономика</span>
         <span>Меркантилизм</span>
         <span>Маржинализм</span>
         <span>Кейнсианство</span>

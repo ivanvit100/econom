@@ -1,29 +1,15 @@
 <template>
   <div id="Start">
-  	<img src="@/assets/line.png" alt="logo" id="logo2" @click="home">
+  	<<img src="@/assets/line.png" alt="logo" id="logo2" @click="home">
     <div class="barcontainer">
-    	<div class="bar"></div>
-    	<div class="barCont"><img src="@/assets/money.png" alt="Coin" class="coin" style></div>
-	</div>
-	<div class="task">
-		<div id="wrapHelp">
-      <h2>Память былых дней</h2>
-      <div id="taskbar">
-        <table>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>4</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+      <div class="bar"></div>
+      <div class="barCont"><img src="@/assets/money.png" alt="Coin" class="coin" style></div>
+  </div>
+  <div class="task">
     <div id="first">
       <div id="wrap">
-        <table>
+        <img src="@/assets/mail.png" alt="mail" id="mail" class="animate__animated animate__bounce animate__delay-5s">
+        <table id="code">
           <tr>
             <td>1</td>
             <td>А</td>
@@ -113,6 +99,58 @@
             <td>Я</td>
           </tr>
         </table>
+        <table id="quest">
+          <tr>
+            <td>1. (10 - 4) + (2 + 10)</td>
+            <td>13. (13 + 6) + (17 - 16)</td>
+          </tr>
+          <tr>
+            <td>2. (20 - 12) - (10 - 8)</td>
+            <td>14. (7 + 11) - (18 - 6)</td>
+          </tr>
+          <tr>
+            <td>3. (7 + 6) - (7 - 6)</td>
+            <td>15. (5 + 19) - (5 + 6)</td>
+          </tr>
+          <tr>
+            <td>4. (9 + 12) - (7 + 1)</td>
+            <td>16. (7 + 9) + (8 + 5)</td>
+          </tr>
+          <tr>
+            <td>5. (21 - 19) - (6 - 5)</td>
+            <td>17. (21 - 7) + (13 - 17)</td>
+          </tr>
+          <tr>
+            <td>6. (11 + 7) - (9 - 5)</td>
+            <td>18. (5 + 2) + (21 - 12)</td>
+          </tr>
+          <tr>
+            <td>7. (19 + 3) - (30 - 9)</td>
+            <td>19. (32 - 16) + (10 - 8)</td>
+          </tr>
+          <tr>
+            <td>8. (21 - 17) + (9 - 8)</td>
+            <td>20. (22 - 13) - (16 - 11)</td>
+          </tr>
+          <tr>
+            <td>9. (8 + 7) - (20 - 8)</td>
+            <td>21. (3 + 9) + (7 - 3)</td>
+          </tr>
+          <tr>
+            <td>10. (40 - 32) + (15 - 13)</td>
+            <td>22. (21 - 9) - (18 - 9)</td>
+          </tr>
+          <tr>
+            <td>11. (6 + 9) - (7 + 4)</td>
+            <td>23. (7 + 15) - (6 + 3)</td>
+          </tr>
+          <tr>
+            <td>12. (15 + 8) - (12 + 10)</td>
+            <td>24. (23 - 8) - (3 + 2)</td>
+          </tr>
+        </table>
+        <br>
+        Ответ: <input type="text" v-model="first" id="firstInput">
       </div>
     </div>
 	</div>
@@ -128,37 +166,72 @@ export default{
   data(){
   	return{
   		answers: 'реклама двигатель торговли',
-  		first: '',
-  		second: '',
-      third: '',
-  		counter: 0,
+  		first: ''
   	}
   },
+  watch:{
+    first(oldVal, newVal){
+      if(oldVal != "" && oldVal.trim().toLowerCase() != this.answers){
+        document.querySelector("#firstInput").style.borderBottom = "2px solid red"
+      }else if(oldVal.trim().toLowerCase() == this.answers){
+        document.querySelector("#firstInput").style.borderBottom = "2px solid green";
+        this.next();
+      }else{document.querySelector("#firstInput").style.borderBottom = "2px solid white"}
+    }
+  },
   methods:{
-  	check: function(){
-  		if(this.ready.every((v,i)=>v === this.answers[i])){
-  			this.$emit('update', {
-				progress: 55
-			});
-			this.$router.push('Story2');
-  		}
-  	},
   	next: function(){
   		this.$emit('update', {
-			progress: 55
-		});
+        progress: 55
+		  });
       this.$router.push('Story2')
     },
     home: function(){
     	this.$emit('update', {
-			progress: 5
-		});
+        progress: 9
+		  });
       this.$router.push('Main')
     }
-    },
+  },
   mounted(){
   	document.querySelector(".coin").style.bottom = "calc(74% - 25px)";
   	document.querySelector(".bar").style.height = "74%";
   }
 }
 </script>
+
+<style scoped>
+input{
+  width: 300px;
+}
+table{
+  display: inline;
+  margin: 10px;
+}
+#quest > tr:nth-child(2n + 1){
+  background-color: #FFCC99;
+}
+#quest > tr:nth-child(2n + 1) > td{
+  color: black !important;
+}
+tr, td{
+  color: white;
+  text-align: left;
+  padding: 0.5em;
+  border: thin solid white;
+  border-collapse: collapse;
+}
+.barcontainer{
+  left: -50px;
+}
+#wrap{
+  position: absolute;
+  left: 50vw;
+  top: -50vh;
+  width: 70vw;
+}
+#code > tr > td:nth-child(2n + 1){
+  background-color: #FFCC99;
+  color: black;
+}
+</style>

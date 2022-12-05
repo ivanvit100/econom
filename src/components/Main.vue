@@ -16,13 +16,13 @@
       <div class="card card1 animate__animated animate__zoomIn" @click="more">
         <div class="border">
           <h2>Программы</h2>
-          <p>Игры по образовательным программам факультета экономики ЕИ КФУ.</p>
+          <p>В данном разделе вы можете пройти задания по различным дисциплинам, а также проверить себя в определённой сфере.</p>
         </div>
       </div>
       <div class="card card2 animate__animated animate__zoomIn">
         <div class="border">
           <h2>Авторы</h2>
-          <p>Топовая группа е2216 ЕИ КФУ</p>
+          <p>Данный супер-мега-классный проект для отделения экономических и юридических наук был выполнен студентами 1 курса ОМиЕН Елабужского института КФУ - группой е2216.</p>
         </div>
       </div>
       <div class="card card3 animate__animated animate__zoomIn" @click="start">
