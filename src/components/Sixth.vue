@@ -150,6 +150,7 @@
           </tr>
         </table>
         <br>
+        <br>
         Ответ: <input type="text" v-model="first" id="firstInput">
       </div>
     </div>
@@ -207,6 +208,7 @@ input{
 table{
   display: inline;
   margin: 10px;
+  font-size: 15px;
 }
 #quest > tr:nth-child(2n + 1){
   background-color: #FFCC99;

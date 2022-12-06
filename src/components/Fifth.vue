@@ -34,6 +34,13 @@
           Самая популярная книга современности. <br>
           В ящике лежит: <input type="text" v-model="third" id="thirdInput">
         </div>
+        <br>
+        <br>
+        <div id="FourthBox">
+          Допускаемый законом символ производителя, <br>
+          располагаемый на товаре или упаковке. <br>
+          В ящике лежит: <input type="text" v-model="fourth" id="fourthInput">
+        </div>
 			</div>
 		</div>
 	</div>
@@ -48,10 +55,11 @@ export default{
   props: ['progress'],
   data(){
   	return{
-  		answers: ['деньги', 'акция', 'капитал'],
+  		answers: ['деньги', 'акция', 'капитал', 'товарный знак'],
   		first: '',
   		second: '',
       third: '',
+      fourth: '',
   		counter: 0,
       txt: 'Вижу, вы отлично справляетесь. Высылаю пакет заданий. ',
       text: ''
@@ -59,7 +67,7 @@ export default{
   },
   computed:{
     ready: function(){
-      return [this.first.trim().toLowerCase(), this.second.trim().toLowerCase(), this.third.trim().toLowerCase()]
+      return [this.first.trim().toLowerCase(), this.second.trim().toLowerCase(), this.third.trim().toLowerCase(), this.fourth.trim().toLowerCase()]
     }
   },
   watch:{
@@ -87,6 +95,14 @@ export default{
         this.check();
       }else{document.querySelector("#thirdInput").style.borderBottom = "2px solid white"}
     },
+    fourth(oldVal, newVal){
+      if(oldVal != "" && oldVal.trim().toLowerCase() != this.answers[3]){
+        document.querySelector("#fourthInput").style.borderBottom = "2px solid red"
+      }else if(oldVal.trim().toLowerCase() == this.answers[3]){
+        document.querySelector("#fourthInput").style.borderBottom = "2px solid green";
+        this.check();
+      }else{document.querySelector("#fourthInput").style.borderBottom = "2px solid white"}
+    }
   },
   methods:{
   	check: function(){

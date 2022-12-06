@@ -5,8 +5,10 @@
       <h3>Факультет экономики ЕИ КФУ</h3>
       <img src="@/assets/line.png" alt="logo" id="logo" @click="home">
     </nav>
-    <h2>Список направлений</h2>
-    <p v-for="item in items" @click="game(item.game)">{{item.name}}</p>
+    <center><h2>Список направлений</h2></center>
+    <ul>
+      <li v-for="item in items" @click="game(item.game)">{{item.name}}</li>
+    </ul>
   </div>
 </template>
 
@@ -33,10 +35,33 @@ export default{
 </script>
 
 <style scoped>
-h1, h3{
+li{
+  color: white;
+  margin: 10px;
+}
+li:hover{
+  font-size: 17px;
+  margin: 9px;
+}
+li:hover::marker{
+  color: orange !important;
+  font-size: 17px !important;
+}
+ul{
+  background-color: black;
+  border: 5px solid white;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+h1, h3, h2{
   margin-bottom: auto;
   margin-top: auto;
   font-family: 'Roboto Slab', serif;
+}
+h2{
+  color: white;
+  text-shadow: 2px 2px 0 black, 2px -2px 0 black, -2px 2px 0 black, -2px -2px 0 black, 2px 0px 0 black, 0px 2px 0 rgb(165, 42, 36), -2px 0px 0 black, 0px -2px 0 black, 2px 2px 2px black;
+  font-size: 28px;
 }
 h1{
   color: black;

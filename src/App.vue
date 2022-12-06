@@ -308,6 +308,7 @@ div{
   filter: alpha(opacity=20);
 }
 body{
+  font-family: system-ui;
   padding: 0;
   margin: 0;
   background: rgb(63,63,63);

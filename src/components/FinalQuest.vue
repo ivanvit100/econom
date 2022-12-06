@@ -55,10 +55,6 @@ export default{
       user: []
   	}
   },
-  computed:{
-  },
-  watch:{
-  },
   methods:{
   	next: function(){
   		this.$emit('update', {
@@ -88,22 +84,15 @@ export default{
       document.querySelector("#elevenWrap"),
       document.querySelector("#readybar"),
     ]).on('drop', function(el){
-      /*let children = document.querySelector("#taskbar").childNodes;
-      let children2 = document.querySelector("#readybar").childNodes;
-      this.user = [];
-      for(let i = 0; i < children.length; ++i){
-        if(children[i].alt != undefined){
-          this.user.push(children[i].alt);
+      let ready = [];
+      for(let i = 0; i < 11; ++i){
+        if(document.querySelectorAll(".textWrap")[i].childNodes.length == 1){
+          ready.push(document.querySelectorAll(".textWrap")[i].children[0].innerText);
         }
       }
-      for(let i = 0; i < children2.length; ++i){
-        if(children2[i].alt != undefined){
-          this.user.push(children2[i].alt);
-        }
-      }
-      if(JSON.stringify(['old1', 'old2', 'old3', 'new1', 'new2', 'new3']) === JSON.stringify(this.user)){
+      if(JSON.stringify(['Меркантилизм', 'Маржинализм', 'Кейнсианство', 'Микроэкономика', 'Мировая экономика', 'Мезоэкономика', 'Инфляция', 'Экономический рост', 'Прибыль', 'Предложение', 'Качество жизни']) === JSON.stringify(ready)){
         document.querySelector("#next").click();
-      }*/
+      }
     });
   	document.querySelector(".coin").style.bottom = "calc(87% - 25px)";
   	document.querySelector(".bar").style.height = "87%";
@@ -112,6 +101,9 @@ export default{
 </script>
 
 <style scoped>
+.textWrap{
+  display: inline;
+}
 span{
   display: inline;
   margin: 10px;
@@ -147,5 +139,6 @@ span{
   max-width: 100% !important;
   max-height: 100% !important;
   overflow-y: scroll;
+  text-align: justify;
 }
 </style>
