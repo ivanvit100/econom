@@ -13,7 +13,7 @@
 		<div id="first">
 			<div id="wrap">
 				<img src="@/assets/mail.png" alt="mail" id="mail" class="animate__animated animate__bounce animate__delay-5s">
-				<h2>Литературный конкурс</h2>
+				<h2 style="margin: 0 0 15px 0">Литературный конкурс</h2>
 				<div>На товаре быть должна<br>
 				Обязательно
 				<input type="text" v-model="first" id="firstInput">

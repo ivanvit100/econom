@@ -6,8 +6,8 @@
       <div class="barCont"><img src="@/assets/money.png" alt="Coin" class="coin" style></div>
   </div>
   <div class="task">
-    <div id="first">
-      <div id="wrap">
+    <div id="tableCont">
+      <div id="wrap2">
         <img src="@/assets/mail.png" alt="mail" id="mail" class="animate__animated animate__bounce animate__delay-5s">
         <table id="code">
           <tr>
@@ -202,6 +202,17 @@ export default{
 </script>
 
 <style scoped>
+.task{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#tableCont{
+  width: 100vw;
+}
+#wrap2{
+  width: 60%;
+}
 input{
   width: 300px;
 }

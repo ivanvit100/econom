@@ -54,14 +54,14 @@ export default{
 #first, #phone{
   position: relative;
 }
-#wrap, #phone > img, #wrapHelp{
+#wrap, #phone > img, #wrapHelp, #wrap2{
   position: absolute;
   top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
-#wrap, #wrapHelp{
+#wrap, #wrapHelp, #wrap2{
   background-color: rgba(0, 0, 0, .5);
   border-radius: 50px;
   border: 5px solid white;
@@ -337,5 +337,10 @@ body{
   -moz-box-shadow: 11px -9px 8px 0px rgba(28, 0, 0, 0.2); 
   box-shadow: 11px -9px 8px 0px rgba(28, 0, 0, 0.2);
   z-index: 3;
+}
+@media(max-width: 1100px){
+  #app{
+    display: none;
+  }
 }
 </style>
