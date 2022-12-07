@@ -27,6 +27,8 @@
 	</div>
 	<div id="next" @click="next">&#10230;</div>
     <div id="home" @click="home">&#10229;</div>
+    <img src="/static/chibi.png" alt="chibi" id="chibi" class="backrevert">
+    <p class="cloud animate__animated animate__fadeIn animate__delay-2s animate__slow">{{text}}</p>
   </div>
 </template>
 
@@ -36,14 +38,25 @@ export default{
   props: ['progress'],
   data(){
   	return{
-      user: []
+      user: [],
+      counter: 0,
+      txt: 'День добрый. Как же надоели нынешние купюры, этот дизайн 90-ых. Их давно пора освежить! О боже, кажется, мой ассистент смешал все черновики новых экземпляров со старыми образцами... Рассортируйте их в разные стопки по порядку. А я пока пойду пить кофеек. ',
+      text: ''
   	}
   },
-  computed:{
-  },
-  watch:{
-  },
   methods:{
+    writer: function(){
+      if(this.counter < this.txt.length){
+        this.text += this.txt.charAt(this.counter);
+        this.counter++;
+        if(this.counter + 1 == this.txt.length){
+          document.querySelector(".cloud").classList.add("animate__fadeOut");
+          console.log("stop");
+        }else{
+          setTimeout(this.writer, 55);
+        }
+      }
+    },
   	next: function(){
   		this.$emit('update', {
 			 progress: 45
@@ -81,11 +94,34 @@ export default{
     });
   	document.querySelector(".coin").style.bottom = "calc(48% - 25px)";
   	document.querySelector(".bar").style.height = "48%";
+    this.writer();
+    setTimeout(() => {
+      document.querySelector("#chibi").remove()
+    }, 16400);
   }
 }
 </script>
 
 <style scoped>
+.cloud{
+  position: absolute;
+  bottom: 330px;
+  right: 100px;
+  z-index: 10;
+  height: 150px;
+  width: 330px;
+}
+.cloud::before{
+  display: none;
+}
+#chibi{
+  position: absolute;
+  bottom: 30px;
+  height: 400px;
+  z-index: 9;
+  animation: go 2s, go 2s reverse 14s;
+  right: 100px;
+}
 #Start{
   grid-template-columns: 50% 50% !important;
 }
@@ -110,5 +146,21 @@ export default{
 #wrap, #wrapHelp{
   height: 80vh;
   min-width: 100px;
+}
+@keyframes go{
+  0%{
+    transform: rotate(-15deg);
+    right: -20px;
+  }
+  15%{
+    transform: rotate(15deg);
+  }
+  50%{
+    transform: rotate(-15deg);
+  }
+  100%{
+    transform: rotate(0deg);
+    right: 100px;
+  }
 }
 </style>

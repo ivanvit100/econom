@@ -138,7 +138,7 @@ span{
   height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  overflow-y: scroll;
+  overflow-y: auto;
   text-align: justify;
 }
 </style>

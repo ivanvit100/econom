@@ -114,6 +114,12 @@ export default{
   		}else{document.querySelector("#fourthInput").style.borderBottom = "2px solid white"}
   	},
   	fifth(oldVal, newVal){
+      if(oldVal.trim().toLowerCase() == "обмана"){
+        document.querySelector("#Start").classList.toggle("stonks");
+        setTimeout(() => {
+          document.querySelector("#Start").classList.toggle("stonks")
+        }, 1000);
+      }
   		if(oldVal != "" && oldVal.trim().toLowerCase() != this.answers[4]){
   			document.querySelector("#fifthInput").style.borderBottom = "2px solid red"
   		}else if(oldVal.trim().toLowerCase() == this.answers[4]){

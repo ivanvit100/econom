@@ -21,6 +21,24 @@ export default{
 </script>
 
 <style>
+*, body{
+  scrollbar-width: thin;
+  scrollbar-color: rgb(60, 60, 60) rgba(0, 0, 0, 0);
+}
+*::-webkit-scrollbar{
+  width: 7px;
+}
+*::-webkit-scrollbar-track{
+  background: rgba(0, 0, 0, 0);
+}
+*::-webkit-scrollbar-thumb{
+  background-color: rgb(60, 60, 60);
+  border-radius: 20px;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+.stonks{
+  background: url("/static/stonks.jpg") center center no-repeat !important;
+}
 .cloud{
   position: absolute;
   color: black;

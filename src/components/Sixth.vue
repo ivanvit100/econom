@@ -234,9 +234,6 @@ tr, td{
   border: thin solid white;
   border-collapse: collapse;
 }
-.barcontainer{
-  left: -50px;
-}
 #wrap{
   position: absolute;
   left: 50vw;
