@@ -186,7 +186,7 @@ input, .textWrap{
   background: url("/static/story1.png") center top no-repeat;
   background-size: cover;
 }
-.text{
+.text, #ansBlock{
   font-family: 'Play', sans-serif;
   padding: 25px 220px 25px 25px;
   font-size: 18px;

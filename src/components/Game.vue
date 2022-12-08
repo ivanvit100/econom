@@ -1,5 +1,8 @@
 <template>
 <div id="game">
+  <div id="ans" v-if="show" @click="close" class="animate__animated animate__fadeIn">
+    <center><div id="ansBlock" class="animate__animated animate__backInDown"><h2 style="color: orange">Ответ: </h2>{{ans}}</div></center>
+  </div>
 	<nav>
     	<h1>Конкурсы рубля</h1>
     	<h3>Факультет экономики ЕИ КФУ</h3>
@@ -21,7 +24,7 @@
         <br>
         2)Найдите x. <br>
         3) Сможет ли студент использовать схему: "начисление процентов на вклад -> снятие x рублей -> внос x (рассрочка)"? Если да, то какая сумма останется в банке после последнего взноса по рассрочке? Если нет, то какую минимальную сумму студент должен попросить у родителей для закрытия задолженности?
-        <button @click="answer(game, 1)">?</button>
+        <button @click="answer(game, 0)">?</button>
       </div>
     </div>
   </div>
@@ -36,7 +39,15 @@ export default{
   data(){
   	return{
       list: 1,
-      count: 1
+      count: 1,
+      answers: {
+        "money": {
+          0: "1. 19500 рублей; 2. 3250 рублей; 3. После трёх выплат у студента не хватит средств на выплату, у родителей придётся попросить 7942,23 рублей.", 
+          1: "test"
+        }
+      },
+      ans: "",
+      show: false
   	}
   },
   computed:{
@@ -49,10 +60,14 @@ export default{
       this.$router.push('/')
     },
     next: function(id){
-      this.$router.push({name: 'Games', params: {gameId: id}})
+      //this.$router.push({name: 'Games', params: {gameId: id}})
     },
     answer: function(id, num){
-      alert(id);
+      this.ans = this.answers[id][num];
+      this.show = true;
+    },
+    close: function(){
+      this.show = false;
     }
   },
   mounted(){
@@ -61,6 +76,22 @@ export default{
 </script>
 
 <style scoped>
+#ans{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  top: 0;
+  left: 0;
+}
+#ansBlock{
+  width: 60vw;
+  height: 60vh;
+  text-align: left;
+  transform: translateY(25%);
+  color: white;
+}
 button{
   position: absolute;
   top: 35px;

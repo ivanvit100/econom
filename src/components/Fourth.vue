@@ -106,7 +106,7 @@ export default{
 .cloud{
   position: absolute;
   bottom: 330px;
-  right: 100px;
+  right: 300px;
   z-index: 10;
   height: 150px;
   width: 330px;
