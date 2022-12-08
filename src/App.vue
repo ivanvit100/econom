@@ -79,7 +79,7 @@ export default{
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
-#wrap, #wrapHelp, #wrap2{
+#wrap, #wrapHelp, #wrap2, #wrapTask{
   background-color: rgba(0, 0, 0, .5);
   border-radius: 50px;
   border: 5px solid white;

@@ -28,7 +28,7 @@
 	<div id="next" @click="next">&#10230;</div>
     <div id="home" @click="home">&#10229;</div>
     <img src="/static/chibi.png" alt="chibi" id="chibi" class="backrevert">
-    <p class="cloud animate__animated animate__fadeIn animate__delay-2s animate__slow">{{text}}</p>
+    <p class="cloud animate__animated animate__fadeIn animate__delay-2s">{{text}}</p>
   </div>
 </template>
 
@@ -97,7 +97,7 @@ export default{
     this.writer();
     setTimeout(() => {
       document.querySelector("#chibi").remove()
-    }, 16400);
+    }, 17490);
   }
 }
 </script>
@@ -116,10 +116,10 @@ export default{
 }
 #chibi{
   position: absolute;
-  bottom: 30px;
+  bottom: 80px;
   height: 400px;
   z-index: 9;
-  animation: go 2s, go 2s reverse 14s;
+  animation: go 2s, go 2s reverse 15.5s;
   right: 100px;
 }
 #Start{

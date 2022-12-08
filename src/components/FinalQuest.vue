@@ -1,6 +1,5 @@
 <template>
   <div id="Start">
-  	<img src="@/assets/line.png" alt="logo" id="logo2" @click="home">
     <div class="barcontainer">
     	<div class="bar"></div>
     	<div class="barCont"><img src="@/assets/money.png" alt="Coin" class="coin" style></div>
