@@ -96,7 +96,8 @@ export default{
   	document.querySelector(".bar").style.height = "48%";
     this.writer();
     setTimeout(() => {
-      document.querySelector("#chibi").remove()
+      document.querySelector("#chibi").remove();
+      document.querySelector(".cloud").remove();
     }, 17490);
   }
 }
