@@ -34,6 +34,8 @@ export default{
   },
   mounted(){
     this.writer();
+    document.querySelector("audio").volume = 0.3;
+    document.querySelector("audio").play();
   }
 }
 </script>

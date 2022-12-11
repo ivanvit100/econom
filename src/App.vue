@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <audio src="/static/fon.mp3" loop></audio>
     <router-view :progress="progress" @update="update"/>
   </div>
 </template>
@@ -21,6 +22,12 @@ export default{
 </script>
 
 <style>
+audio{
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+  opacity: 0;
+}
 *, body{
   scrollbar-width: thin;
   scrollbar-color: rgb(60, 60, 60) rgba(0, 0, 0, 0);

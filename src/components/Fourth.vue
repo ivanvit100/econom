@@ -28,7 +28,7 @@
 	<div id="next" @click="next">&#10230;</div>
     <div id="home" @click="home">&#10229;</div>
     <img src="/static/chibi.png" alt="chibi" id="chibi" class="backrevert">
-    <p class="cloud animate__animated animate__fadeIn animate__delay-2s">{{text}}</p>
+    <p class="cloud cloud4 animate__animated animate__fadeIn animate__delay-2s">{{text}}</p>
   </div>
 </template>
 
@@ -49,8 +49,9 @@ export default{
       if(this.counter < this.txt.length){
         this.text += this.txt.charAt(this.counter);
         this.counter++;
+        console.log(this.counter, this.txt.length);
         if(this.counter + 1 == this.txt.length){
-          document.querySelector(".cloud").classList.add("animate__fadeOut");
+          document.querySelector(".cloud4").classList.add("animate__fadeOut");
           console.log("stop");
         }else{
           setTimeout(this.writer, 55);
@@ -99,6 +100,14 @@ export default{
       document.querySelector("#chibi").remove();
       document.querySelector(".cloud").remove();
     }, 17490);
+  },
+  beforeDestroy(){
+    this.writer = null;
+    console.log(this.writer, this.writer());
+  },
+  destroyed(){
+    this.writer = null;
+    console.log(this.writer, this.writer());
   }
 }
 </script>

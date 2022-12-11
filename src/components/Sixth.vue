@@ -197,6 +197,14 @@ export default{
   mounted(){
   	document.querySelector(".coin").style.bottom = "calc(74% - 25px)";
   	document.querySelector(".bar").style.height = "74%";
+  },
+  beforeDestroy(){
+    this.writer = null;
+    console.log(this.writer, this.writer());
+  },
+  destroyed(){
+    this.writer = null;
+    console.log(this.writer, this.writer());
   }
 }
 </script>

@@ -73,7 +73,7 @@ export default{
   },
   methods:{
     home: function(){
-      this.$router.push('/')
+      this.$router.push('More')
     },
     next: function(id){
       //this.$router.push({name: 'Games', params: {gameId: id}})

@@ -137,6 +137,14 @@ export default{
   	document.querySelector(".coin").style.bottom = "calc(22% - 25px)";
   	document.querySelector(".bar").style.height = "22%";
   	this.writer();
+  },
+  beforeDestroy(){
+    this.writer = null;
+    console.log(this.writer, this.writer());
+  },
+  destroyed(){
+    this.writer = null;
+    console.log(this.writer, this.writer());
   }
 }
 </script>

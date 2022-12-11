@@ -1,7 +1,7 @@
 <template>
   <div id="Main">
     <nav>
-      <h1>Конкурсы рубля</h1>
+      <h1>Экономический квест</h1>
       <h3>Отделение экономических и юридических наук ЕИ КФУ</h3>
       <img src="@/assets/line.png" alt="logo" class="animate__animated animate__slideInDown" id="logo">
     </nav>
@@ -46,6 +46,10 @@ export default{
       this.$router.push('More')
     }
   },
+  mounted(){
+    document.querySelector("audio").pause();
+    document.querySelector("audio").currentTime = 0;
+  }
 }
 </script>
 
