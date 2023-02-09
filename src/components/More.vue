@@ -32,8 +32,7 @@ export default{
   },
   mounted(){
     let keys = Object.keys(Tasks);
-    console.log(keys);
-    for(var i = 0; i <= keys.length; i++){
+    for(var i = 0; i < keys.length; i++){
       this.items.push({"name": Tasks[keys[i]]["title"], "game": keys[i]})
     }
     this.items.push({"name": "Добавить задания", "game": "add"})
