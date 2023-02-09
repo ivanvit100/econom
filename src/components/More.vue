@@ -7,10 +7,8 @@
     </nav>
     <center><h2>Список направлений</h2></center>
     <ul>
-      <li v-for="item in items" @click="game(item.game)">{{item.name}}</li>
-      <!--Test1-->
       <li @click="createTask">Добавить задания</li>
-      <!--Test2-->
+      <li v-for="item in items" @click="game(item.game)">{{item.name}}</li>
     </ul>
   </div>
 </template>
