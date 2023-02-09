@@ -8,6 +8,7 @@
     <center><h2>Список направлений</h2></center>
     <ul>
       <li v-for="item in items" @click="game(item.game)">{{item.name}}</li>
+      <li @click="createTask">Добавить задания</li>
     </ul>
   </div>
 </template>
@@ -18,18 +19,25 @@ export default{
   props: ['progress'],
   data(){
   	return{
-      items: [{'name': 'Инновационная экономика и технологическо предпринимательство', 'game': 'new'}, {'name': 'Менеджмент', 'game': 'manage'}, {'name': 'Макроэкономика', 'game': 'macro'}, {'name': 'Международный бизнес', 'game': 'world'}, {'name': 'История экономических учений', 'game': 'history'}, {'name': 'Экономическая теория', 'game': 'theory'}, {'name': 'Финансы', 'game': 'finance'}, {'name': 'Бухгалтерский управленческий учёт', 'game': 'accounting'}, {'name': 'Деньги, кредит, банки', 'game': 'money'}, {'name': 'Эконометрика', 'game': 'metric'}, {'name': 'Бюджетная система РФ', 'game': 'ru'}, {'name': 'Бизнес-планирование', 'game': 'plan'}, {'name': 'Инвестирование', 'game': 'invest'}, {'name': 'Корпоративные финансы', 'game': 'corp'}, {'name': 'Мировая экономика и международные экономические отношения', 'game': 'worldeco'}, {'name': 'Маркетинг', 'game': 'market'}, {'name': 'Теория бухгалтерского учёта', 'game': 'counttheory'}, {'name': 'Финансовый учёт и отчётность', 'game': 'report'}, {'name': 'Теория экономического анализа', 'game': 'analitic'}, {'name': 'Налоги и налогооблажение организаций', 'game': 'taxes'}, {'name': 'Менеджмент', 'game': 'manage'}, {'name': 'Экономическая безопасность', 'game': 'safety'}, {'name': 'Страхование и страховая деятельность', 'game': 'insurace'}, {'name': 'Финансовый менеджмент', 'game': 'finmanage'}, {'name': 'Экономика инновационной деятельности', 'game': 'neweco'}, {'name': 'Внешнеэкономическая деятельность: особенности учёта', 'game': 'outeco'}, {'name': 'Основы предпринимательства', 'game': 'base'}, {'name': 'Экономика организации', 'game': 'corp'}]
+      items: []
   	}
   },
   methods:{
     home: function(){
       this.$router.push('Main')
     },
+    createTask: function(){
+      this.$router.push('Create')
+    },
     game: function(id){
       this.$router.push({name: 'Game', params: {gameId: id}})
     }
   },
   mounted(){
+    let keys = Object.keys(Tasks);
+    for(var i = 0; i <= keys.length; i++){
+      this.items.push({"name": Tasks[keys[i]]["title"], "game": keys[i]})
+    }
   }
 }
 </script>

@@ -13,6 +13,7 @@ import Story2 from '@/components/story2'
 import FinalQuest from '@/components/FinalQuest'
 import FinalStory from '@/components/FinalStory'
 import Game from '@/components/Game'
+import Create from '@/components/Create'
 
 Vue.use(Router)
 
@@ -86,8 +87,13 @@ export default new Router({
       props: true
     },
     {
-		path: '*',
-		redirect: '/',
-	},
+      path: '/create',
+      name: 'Create',
+      component: Create
+    },
+    {
+		  path: '*',
+		  redirect: '/',
+    },
   ]
 })
