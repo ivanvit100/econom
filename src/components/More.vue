@@ -7,8 +7,8 @@
     </nav>
     <center><h2>Список направлений</h2></center>
     <ul>
-      <li @click="createTask">Добавить задания</li>
       <li v-for="item in items" @click="game(item.game)">{{item.name}}</li>
+      <li @click="createTask">Добавить задания</li>
     </ul>
   </div>
 </template>
@@ -26,9 +26,6 @@ export default{
     home: function(){
       this.$router.push('Main')
     },
-    createTask: function(){
-      this.$router.push('Create')
-    },
     game: function(id){
       this.$router.push({name: 'Game', params: {gameId: id}})
     }
@@ -38,6 +35,7 @@ export default{
     for(var i = 0; i <= keys.length; i++){
       this.items.push({"name": Tasks[keys[i]]["title"], "game": keys[i]})
     }
+    this.items.push({"name": "Добавить задания", "game": "add"})
   }
 }
 </script>

@@ -61,6 +61,7 @@ export default{
     }
   },
   mounted(){
+    if(this.$route.params.gameId == "add"){this.$router.push('Create')}
     this.title = Tasks[this.game]["title"];
     this.text = Tasks[this.game]["tasks"][this.list]["text"];
     this.ans = Tasks[this.game]["tasks"][this.list]["answer"];
