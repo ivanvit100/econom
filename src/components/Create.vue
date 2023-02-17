@@ -46,23 +46,38 @@ export default{
       this.answer = this.answer.replaceAll(" '", " «").replaceAll("' ", "» ").replaceAll(' "', " «").replaceAll('" ', "» ").replaceAll('"', "'").replaceAll("\r", " ").replaceAll("\n", " ");
       if(this.game != "" && this.text != "" && this.answer != "" && this.password != ""){
         Tasks[this.game]["tasks"][Object.keys(Tasks[this.game]["tasks"]).length + 1] = {"text": this.text, "answer": this.answer};
-        let user = {
-          data: "var Tasks = " + JSON.stringify(Tasks),
+        let pass = {
           password: this.cyrb53(this.password)
         }
-        fetch('http://kpfudnk.byethost11.com/econom/write.php', {
+        let body = JSON.stringify(Tasks);
+        fetch('http://c9534039.beget.tech/static/check.php', {
           method: 'POST',
-          body: JSON.stringify(user)
+          body: JSON.stringify(pass)
         }).then((response) => {
           return response.json()
         }).then((data) => {
-          if(data['reult']){
-            document.querySelector("#status").innerText = "Задача добавлена!";
+          if(data['result']){
+            fetch('http://c9534039.beget.tech/static/write.php', {
+              method: 'POST',
+              body: body
+            }).then((response) => {
+              return response.json()
+            }).then((data) => {
+              if(data['result']){
+                document.querySelector("#status").innerText = "Задача добавлена!";
+              }else{
+                document.querySelector("#status2").innerText = "Ошибка сервера!";
+              }
+            }).catch((error) => {
+              document.querySelector("#status2").innerText = "Ошибка запроса!";
+              console.log(error);
+            });
           }else{
-            document.querySelector("#status2").innerText = "Ошибка сервера!";
+            document.querySelector("#status2").innerText = "Неверный пароль!";
           }
         }).catch((error) => {
           document.querySelector("#status2").innerText = "Ошибка запроса!";
+          console.log(error);
         });
       }else{
         document.querySelector("#status2").innerText = "Заполните все поля!";

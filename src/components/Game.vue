@@ -43,11 +43,15 @@ export default{
   },
   methods:{
     home: function(){
-      this.$router.push('More')
+      if(this.list > 1){
+        this.list -= 1;
+        this.text = Tasks[this.game]["tasks"][this.list]["text"];
+        this.ans = Tasks[this.game]["tasks"][this.list]["answer"];
+      }
     },
     next: function(id){
-      if(this.list < Object.keys(Tasks[this.game]["tasks"])){
-        this.list += 1;
+      if(this.list < Object.keys(Tasks[this.game]["tasks"]).length){
+        this.list += 1; 
         this.text = Tasks[this.game]["tasks"][this.list]["text"];
         this.ans = Tasks[this.game]["tasks"][this.list]["answer"];
       }
